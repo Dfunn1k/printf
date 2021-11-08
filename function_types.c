@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "main.h"
 
 /**
  *op_char - function that display char

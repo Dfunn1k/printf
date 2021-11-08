@@ -1,7 +1,4 @@
-#include "printf.h"
-#include <unistd.h>
-#include <stddef.h>
-#include <stdarg.h>
+#include "main.h"
 
 /**
  * _printf - prints any type of data

@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "main.h"
 
 /**
   * match - function that compares and sends the necessary function

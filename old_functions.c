@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "main.h"
 
 /**
  * rev_string - reverts the string

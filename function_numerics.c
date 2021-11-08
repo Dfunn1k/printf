@@ -1,4 +1,4 @@
-#include "printf.h"
+#include "main.h"
 
 /**
  * op_integer - prints integers numbers
