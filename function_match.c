@@ -6,7 +6,7 @@
   *
   * Return: function pointer
   */
-void (*match(const char *s))(va_list r)
+int (*match(const char *s))(va_list r)
 {
 	op_t ops[] = {
 		{"c", op_char},
