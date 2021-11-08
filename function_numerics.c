@@ -3,8 +3,10 @@
 /**
  * op_integer - prints integers numbers
  * @list: struct va_list
+ *
+ * Return: number of printed characters
  */
-void op_integer(va_list list)
+int op_integer(va_list list)
 {
 	int num, temp, i = 0, count = 0;
 	char *str;
@@ -21,7 +23,7 @@ void op_integer(va_list list)
 
 	str = malloc(sizeof(char) * (count + 1));
 	if (str == NULL)
-		return;
+		exit(100);
 	while (num != 0)
 	{
 		str[i] = (num % 10) + 48;
@@ -30,15 +32,17 @@ void op_integer(va_list list)
 	}
 	str[count] = '\0';
 	rev_string(str);
-	write(1, str, _strlen(str));
+	return (write(1, str, _strlen(str)));
 	free(str);
 }
 
 /**
- *op_binary - that print num in binary
- *@list: paramter passed
+ * op_binary - that print num in binary
+ * @list: paramter passed
+ *
+ * Return: number of printed chracters
  */
-void op_binary(va_list list)
+int op_binary(va_list list)
 {
 	int num, temp, i = 0, count = 0;
 	char *str;
@@ -55,7 +59,7 @@ void op_binary(va_list list)
 
 	str = malloc(sizeof(char) * (count + i));
 	if (str == NULL)
-		return;
+		exit(100);
 	while (num != 0)
 	{
 		str[i] = (num % 2) + 48;
@@ -64,6 +68,6 @@ void op_binary(va_list list)
 	}
 	str[count] = '\0';
 	rev_string(str);
-	write(1, str, _strlen(str));
+	return (write(1, str, _strlen(str)));
 	free(str);
 }
