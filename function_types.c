@@ -6,7 +6,7 @@
  */
 void op_char(va_list list)
 {
-	char *ptr = va_argc(list, int);
+	char ptr = va_arg(list, int);
 
 	write(1, &ptr, 1);
 }
