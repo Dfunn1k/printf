@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + i) == '%' && *(format + i + 1) == '%')
 		{
-			nbytes = write(1, format + i, 1);
+			nbytes += write(1, format + i, 1);
 			i++;
 			continue;
 		}
@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 		{
 			if (match(format + i + 1) != NULL)
 			{
-				match(format + i + 1)(list);
+				nbytes += match(format + i + 1)(list);
 				i++;
 				continue;
 			}
