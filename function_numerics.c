@@ -35,18 +35,18 @@ void op_integer(va_list list)
 }
 
 /**
- *
- *
- *
+ *op_binary - that print num in binary
+ *@list: paramter passed
  */
 void op_binary(va_list list)
 {
 	int num, temp, i = 0, count = 0;
 	char *str;
+
 	num = va_arg(list, int);
 	temp = num;
 
-	while(num != 0)
+	while (num != 0)
 	{
 		num = num / 2;
 		count++;
@@ -56,10 +56,10 @@ void op_binary(va_list list)
 	str = malloc(sizeof(char) * (count + i));
 	if (str == NULL)
 		return;
-	while(num != 0)
+	while (num != 0)
 	{
 		str[i] = (num % 2) + 48;
-		num = num / 2:
+		num = num / 2;
 		i++;
 	}
 	str[count] = '\0';
