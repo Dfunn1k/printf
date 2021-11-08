@@ -13,24 +13,38 @@ int op_integer(va_list list)
 
 	num = va_arg(list, int);
 	temp = num;
+	if (num == 0)
+	{
+		char c = '0';
+
+		return (write(1, &c, 1));
+	}
 
 	while (num != 0)
-	{
-		num = num / 10;
-		count++;
-	}
-	num = temp;
+		num = num / 10, count++, num = temp;
 
-	str = malloc(sizeof(char) * (count + 1));
+	if (num > 0)
+		str = malloc(sizeof(char) * (count + 1));
+	else
+		str = malloc(sizeof(char) * (count + 2));
 	if (str == NULL)
 		exit(100);
 	while (num != 0)
 	{
-		str[i] = (num % 10) + 48;
-		num = num / 10;
-		i++;
+		if (num > 0)
+			str[i] = (num % 10) + 48;
+		else
+			str[i] = ((num % 10) * -1) + 48;
+		num = num / 10, i++;
 	}
-	str[count] = '\0';
+	num = temp;
+	if (num > 0)
+		str[count] = '\0';
+	else
+	{
+		str[count] = '-';
+		str[count + 1] = '\0';
+	}
 	rev_string(str);
 	return (write(1, str, _strlen(str)));
 	free(str);
