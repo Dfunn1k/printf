@@ -13,12 +13,13 @@ void (*match(const char *s))(va_list r)
 		{"s", op_string},
 		{"d", op_integer},
 		{"i", op_integer},
+		{"b", op_binary},
 		{NULL, NULL}
 	};
 
 	int i = 0;
 
-	while (i < 4)
+	while (i < 5)
 	{
 		if (*s == *(ops[i]).op)
 			return (*(ops[i]).f);
