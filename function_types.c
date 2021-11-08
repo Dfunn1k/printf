@@ -1,7 +1,4 @@
 #include "printf.h"
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
 
 /**
  *op_char - function that display char
@@ -9,11 +6,9 @@
  */
 void op_char(va_list list)
 {
-	char *ptr;
-	ptr = malloc(sizeof(char));
-	*ptr = va_arg(list, int);
-	write(1,ptr,1);
-	free(ptr);
+	char *ptr = va_argc(list, int);
+
+	write(1, &ptr, 1);
 }
 
 /**
@@ -23,13 +18,7 @@ void op_char(va_list list)
 void op_string(va_list list)
 {
 	char *str;
-	int i;
-	str = va_arg(list, char *);
-	i = 0;
 
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	write(1, str, i);
+	str = va_arg(list, char *);
+	write(1, str, _strlen(str));
 }
