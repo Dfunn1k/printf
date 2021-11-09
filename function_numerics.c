@@ -18,7 +18,6 @@ int op_integer(va_list list)
 	if (num == 0)
 	{
 		char c = '0';
-
 		return (write(1, &c, 1));
 	}
 
@@ -52,16 +51,18 @@ int op_integer(va_list list)
 int op_binary(va_list list)
 {
 	long int num, temp;
-	int i = 0, count = 0;
+	int nbytes, i = 0, count = 0;
 	char *str;
 
-	num = va_arg(list,long int);
+	num = va_arg(list, int);
+	if (num < 0)
+		num *= -1;
+
 	temp = num;
 
 	if (num == 0)
 	{
 		char c = '0';
-
 		return (write(1, &c, 1));
 	}
 	while (num != 0)
@@ -70,8 +71,8 @@ int op_binary(va_list list)
 		count++;
 	}
 	num = temp;
-
-	str = malloc(sizeof(char) * (count + i));
+	
+	str = malloc(sizeof(char) * (count + 1));
 	if (str == NULL)
 		exit(100);
 	while (num != 0)
@@ -82,6 +83,7 @@ int op_binary(va_list list)
 	}
 	str[count] = '\0';
 	rev_string(str);
-	return (write(1, str, _strlen(str)));
+	nbytes = (write(1, str, _strlen(str)));
 	free(str);
+	return (nbytes);
 }
