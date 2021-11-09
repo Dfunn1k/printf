@@ -57,6 +57,12 @@ int op_binary(va_list list)
 	num = va_arg(list, int);
 	temp = num;
 
+	if (num == 0)
+	{
+		char c = '0';
+
+		return (write(1, &c, 1));
+	}
 	while (num != 0)
 	{
 		num = num / 2;
