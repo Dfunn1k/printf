@@ -9,7 +9,7 @@
 int op_integer(va_list list)
 {
 	long int num, temp;
-       	int nbytes, count = 0;
+	int nbytes, count = 0;
 	char *str;
 
 	num = va_arg(list, long int);
@@ -18,9 +18,10 @@ int op_integer(va_list list)
 	if (num == 0)
 	{
 		char c = '0';
+
 		return (write(1, &c, 1));
 	}
-	
+
 	while (num != 0)
 	{
 		num = num / 10, count++;
@@ -33,9 +34,9 @@ int op_integer(va_list list)
 		str = malloc(sizeof(char) * (count + 2));
 	if (str == NULL)
 		exit(100);
-	
+
 	str = assign_nums(num, count, str);
-	
+
 	rev_string(str);
 	nbytes = write(1, str, _strlen(str));
 	free(str);

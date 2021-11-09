@@ -44,15 +44,17 @@ int _strlen(char *s)
 }
 
 /**
- *assign_nums = assign numbers in str
+ *assign_nums - assign numbers in str
  *@num: number that want assign
  *@count: count of the char
  *@str: string
+ *Return: Pointer to char
  */
 char *assign_nums(int num, int count, char *str)
 {
 	long int temp = num;
 	int i = 0;
+
 	while (num != 0)
 	{
 		if (num > 0)
