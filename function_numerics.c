@@ -55,10 +55,7 @@ int op_binary(va_list list)
 	int i = 0, count = 0;
 	char *str;
 
-	num = va_arg(list, int);
-	if (num < 0)
-		num *= -1;
-
+	num = va_arg(list,long int);
 	temp = num;
 
 	if (num == 0)
@@ -74,7 +71,7 @@ int op_binary(va_list list)
 	}
 	num = temp;
 
-	str = malloc(sizeof(char) * (count + 1));
+	str = malloc(sizeof(char) * (count + i));
 	if (str == NULL)
 		exit(100);
 	while (num != 0)
