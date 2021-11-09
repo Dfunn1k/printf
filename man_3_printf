@@ -1,0 +1,48 @@
+.TH _PRINTF "3" "08 november 2021" "_printf man page"
+.SH NAME
+_printf - print data and format
+.SH SYNOPSIS
+.B printf FORMAT [ARGUMENT]...
+.B printf OPTION
+.SH DESCRIPTION
+Prints ARGUMENT(s) based on FORMAT
+
+If format includes format specifiers (subsequences beginning with %), the \
+additional arguments following format are formatted and inserted in the resulting\
+string replacing their respective specifiers.
+
+_printf will also take an indefinite amount of arguments.
+
+.SH CONVERSION SPECIFIERS:
+
+.IP %c
+- prints character.
+.IP %s
+- prints string.
+.IP %%
+- prints percentage symbol.
+.IP %d
+- prints decimal.
+.IP %i
+- prints integer number.
+
+.SH EXAMPLE:
+
+ _printf("%s", text);
+
+In the Example print the value of text with %s give the format of text.
+
+.SH RETURN VALUE
+
+ Upon successful return, these functions return the number of characters printed\
+(excluding the null byte used to end output to strings).
+ If an output error is encountered, a negative value is returned.
+
+.SH AUTHORS
+
+Michael Chambilla.
+
+Dany Chavez.
+
+.SH SEE ALSO
+.I printf (3)
