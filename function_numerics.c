@@ -55,7 +55,7 @@ int op_binary(va_list list)
 	int nbytes, i = 0, count = 0;
 	char *str;
 
-	num = va_arg(list, int);
+	num = va_arg(list, long int);
 	temp = num;
 
 	if (num < 0)
