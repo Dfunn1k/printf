@@ -52,7 +52,7 @@ int op_integer(va_list list)
 int op_binary(va_list list)
 {
 	long int num, temp;
-	int i = 0, count = 0;
+	int nbytes, i = 0, count = 0;
 	char *str;
 
 	num = va_arg(list, long int);
@@ -84,6 +84,7 @@ int op_binary(va_list list)
 	}
 	str[count] = '\0';
 	rev_string(str);
-	return (write(1, str, _strlen(str)));
+	nbytes = write(1, str, _strlen(str));
 	free(str);
+	return (nbytes);
 }
