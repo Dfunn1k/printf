@@ -83,7 +83,6 @@ int op_binary(va_list list)
 	}
 	str[count] = '\0';
 	rev_string(str);
-	nbytes = (write(1, str, _strlen(str)));
+	return (write(1, str, _strlen(str)));
 	free(str);
-	return (nbytes);
 }
