@@ -7,7 +7,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, nbytes = 0;
+	int i, j, addSpace, nbytes = 0;
 	va_list list;
 
 	va_start(list, format);
@@ -17,22 +17,31 @@ int _printf(const char *format, ...)
 
 	for (i = 0; *(format + i) != '\0'; i++)
 	{
-		if (*(format + i) == '%' && *(format + i + 1) == '%')
-		{
-			nbytes += write(1, format + i, 1);
-			i++;
-			continue;
-		}
+		j = 0;
+		addSpace = 0;
 		if (*(format + i) == '%')
 		{
-			if (match(format + i + 1) != NULL)
+			while (*(format + i + j + 1) == ' ')
+				j++, addSpace = 1;
+			if (*(format + i + j + 1) == '%')
 			{
-				nbytes += match(format + i + 1)(list);
+				nbytes += write(1, format + i + j + 1, 1);
+				i += j;
+				i++;
+				continue;
+			}
+			if (match(format + i + j + 1) != NULL)
+			{
+				nbytes += match(format + i + j + 1)(list);
+				i += j;
 				i++;
 				continue;
 			}
 		}
 		nbytes += write(1, format + i, 1);
+		if (addSpace == 1)
+			nbytes += write(1, format + i + j, 1);
+		i += j;
 	}
 	va_end(list);
 	return (nbytes);
