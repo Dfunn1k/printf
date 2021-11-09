@@ -24,6 +24,7 @@ int op_char(va_list list);
 int op_string(va_list list);
 int op_integer(va_list list);
 int op_binary(va_list list);
+char *assign_nums(int num, int count, char *str);
 int _strlen(char *s);
 void rev_string(char *s);
 
