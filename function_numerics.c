@@ -12,7 +12,7 @@ int op_integer(va_list list)
 	int nbytes, count = 0;
 	char *str;
 
-	num = va_arg(list, long int);
+	num = va_arg(list, int);
 	temp = num;
 
 	if (num == 0)
