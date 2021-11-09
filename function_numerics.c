@@ -51,10 +51,11 @@ int op_integer(va_list list)
  */
 int op_binary(va_list list)
 {
-	int num, temp, i = 0, count = 0;
+	long int num, temp;
+	int i = 0, count = 0;
 	char *str;
 
-	num = va_arg(list, int);
+	num = va_arg(list,long int);
 	temp = num;
 
 	if (num == 0)
