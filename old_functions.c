@@ -43,3 +43,33 @@ int _strlen(char *s)
 	return (i);
 }
 
+/**
+ *assign_nums = assign numbers in str
+ *@num: number that want assign
+ *@count: count of the char
+ *@str: string
+ */
+char *assign_nums(int num, int count, char *str)
+{
+	long int temp = num;
+	int i = 0;
+	while (num != 0)
+	{
+		if (num > 0)
+			str[i] = (num % 10) + 48;
+
+		else
+			str[i] = (num % 10) * (-1) + 48;
+		num = num / 10;
+		i++;
+	}
+	num = temp;
+	if (num > 0)
+		str[count] = '\0';
+	else
+	{
+		str[count] = '-';
+		str[count + 1] = '\0';
+	}
+	return (str);
+}
