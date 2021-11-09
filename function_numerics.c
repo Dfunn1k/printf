@@ -55,7 +55,7 @@ int op_binary(va_list list)
 	int i = 0, count = 0;
 	char *str;
 
-	num = va_arg(list,long int);
+	num = va_arg(list, long int);
 	temp = num;
 
 	if (num == 0)
@@ -77,6 +77,8 @@ int op_binary(va_list list)
 	while (num != 0)
 	{
 		str[i] = (num % 2) + 48;
+		if (str[i] == 47)
+			str[i] = 49;
 		num = num / 2;
 		i++;
 	}
