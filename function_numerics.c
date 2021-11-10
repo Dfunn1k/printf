@@ -57,17 +57,19 @@ int op_binary(va_list list)
 	char *str, c;
 
 	n = va_arg(list, int);
-	if (n < 0)
-	{
-		num = -n;
-		num = 4294967295 - num + 1;
-	}
+
 	if (n == 0)
 	{
 		c = '0';
 		return (write(1, &c, 1));
 	}
-	num = n;
+	if (n < 0)
+	{
+		num = -n;
+		num = 4294967295 - num + 1;
+	}
+	else
+		num = n;
 	temp = num;
 	while (num != 0)
 	{
