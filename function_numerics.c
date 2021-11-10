@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
  * op_integer - prints integers numbers
@@ -56,10 +57,9 @@ int op_binary(va_list list)
 	char *str;
 
 	num = va_arg(list, long int);
-	temp = num;
 
 	if (num < 0)
-		num *= -1;
+		num = UINT_MAX + num + 1;
 
 	if (num == 0)
 	{
@@ -67,6 +67,7 @@ int op_binary(va_list list)
 
 		return (write(1, &c, 1));
 	}
+	temp = num;
 	while (num != 0)
 	{
 		num = num / 2;
