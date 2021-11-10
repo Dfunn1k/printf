@@ -53,20 +53,21 @@ int op_integer(va_list list)
 int op_binary(va_list list)
 {
 	long int num, temp;
-	int nbytes, i = 0, count = 0;
-	char *str;
+	int n, nbytes, i = 0, count = 0;
+	char *str, c;
 
-	num = va_arg(list, long int);
-
-	if (num < 0)
-		num = UINT_MAX + num + 1;
-
-	if (num == 0)
+	n = va_arg(list, int);
+	if (n < 0)
 	{
-		char c = '0';
-
+		num = -n;
+		num = 4294967295 - num + 1;
+	}
+	if (n == 0)
+	{
+		c = '0';
 		return (write(1, &c, 1));
 	}
+	num = n;
 	temp = num;
 	while (num != 0)
 	{
