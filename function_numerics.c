@@ -76,14 +76,12 @@ int op_binary(va_list list)
 	}
 	num = temp;
 
-	str = malloc(sizeof(char) * (count + i));
+	str = malloc(sizeof(char) * (count + 1));
 	if (str == NULL)
 		exit(100);
 	while (num != 0)
 	{
 		str[i] = (num % 2) + 48;
-		if (str[i] == 47)
-			str[i] = 49;
 		num = num / 2;
 		i++;
 	}
